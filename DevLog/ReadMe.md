@@ -4,5 +4,7 @@
 
 노션 개인계정으로 모든 자료를 옮겼습니다.
 
+Link :[Notion][https://tender-river-902.notion.site/TIL-b0cb4073403f43cb9cae81f3da7923e7]
+
 이후 카테고리 별로 지식들을 분류 하였고, 앞으로도 계속 그렇게 할 예정입니다.
 
