@@ -1,6 +1,7 @@
 function solution(name) {
     let answer = 0;
     let nowCode = 65;
+    let 
     for (let i = 0; i < name.length; i++) {
         let changeCode = name.charCodeAt(i) - nowCode;
         nowCode = name.charCodeAt(i);
