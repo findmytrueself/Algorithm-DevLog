@@ -23,7 +23,7 @@ function solution(record) {
 }
 debugger;
 solution(['Enter uid1234 Muzi', 'Enter uid4567 Prodo', 'Leave uid1234', 'Enter uid1234 Prodo', 'Change uid4567 Ryan']);
-// solution(['Enter uid123 uid1234', 'Leave uid123', 'Enter uid4567 uid123', 'Change uid4567 uid1234', 'Leave uid4567']);
+solution(['Enter uid123 uid1234', 'Leave uid123', 'Enter uid4567 uid123', 'Change uid4567 uid1234', 'Leave uid4567']);
 // ["uid1234님이 들어왔습니다.","uid1234;님이 나갔습니다.","uid1234님이 들어왔습니다.","uid1234님이 나갔습니다."]
 
 // var answer = [];
