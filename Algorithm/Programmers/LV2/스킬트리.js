@@ -1,71 +1,21 @@
-// function solution(skill, skill_trees) {
-//     let answer = 0;
-//     let firstSkill = skill[0];
-//     let nextSkill = skill[1];
-//     let filtered = [];
-//     skill_trees.forEach((el, idx) => {
-//         if (el.indexOf(firstSkill) !== -1) {
-//             filtered.push(el);
-//         }
-//     });
-//     filtered.forEach((el) => {
-//         if (skillOrder(el.indexOf(firstSkill), el.indexOf(nextSkill))) {
-//             answer++;
-//         }
-//     });
-//     return answer;
-// }
-
-function skillOrder(skillIdx, compareSkillIdx) {
-    if (skillIdx > compareSkillIdx) {
-        return false;
-    } else {
-        return true;
-    }
-}
-function solution(skill, skill_trees, answer = 0) {
-    let firstSkill = skill[0];
-    let nextSkill = skill[1];
-    let filtered = [];
-    if (skill.length === 0) {
-        return answer;
-    }
-    skill_trees.forEach((el, idx) => {
-        if (el.indexOf(firstSkill) !== -1) {
-            filtered.push(el);
+function solution(skill, skill_trees) {
+    let answer = 0;
+    skill_trees.map(el => {
+        let isBreak = false // breakPoint
+        let skills = skill.split(''); // skill을 배열로 쪼개기 ["C","B","D"]
+        for (let i=0; i<el.length; i++){  // 효율성을 위해 break주기 위해서는 for문을 사용한다.
+            if(skills.includes(el[i])){ // 각각의 스킬트리를 접근하여 스킬트리의 0번 인덱스부터 skills에 포함되어있는지
+                if(skills[0]===el[i]){ // 첫번째 나오는 스킬이 스킬트리에서 가장 먼저 나오는지 확인한다.
+                    skills.shift(); // 가장먼저 나왔기 때문에 지워준다.
+                } else { // 나오지 않았으면 더이상 조사할 필요가 없기 때문에 break문으로 반복문을 넘긴다.
+                    isBreak = true; // 만족을 모두 하면 else문으로 들어오지 않기때문에
+                    break;
+                }
+            }
         }
-    });
-    filtered.forEach((el) => {
-        // 'BACDE', 'CBADF', 'AECB'
-        if (skillOrder(el.indexOf(firstSkill), el.indexOf(nextSkill))) {
-            answer++;
-            filtered = filtered.filter((ele) => el === ele);
-            skill = skill.slice(1);
+        if(isBreak === false){ //  처음에 설정한 falsy한 스킬트리만 정답에 더해준다.
+            answer += 1
         }
-    });
-    return solution(skill, filtered, answer);
+    })
+    return answer
 }
-solution('CBD', ['BACDE', 'CBADF', 'AECB', 'BDA']);
-
-function skillOrder(skillIdx, compareSkillIdx) {
-    if (skillIdx > compareSkillIdx) {
-        return false;
-    } else {
-        return true;
-    }
-}
-
-// let trueFalseBox = Array(skill_trees.length).fill(0);
-// console.log(trueFalseBox);
-// skill.split('').forEach((el) => {
-//     let compareSkill = el; // C,B,D
-//     console.log(skill_trees);
-//     skill_trees.forEach((ele, idx) => {
-//         if (ele.indexOf(compareSkill) === -1) {
-//             skill_trees.splice(idx, 1);
-//         }
-//         // C -> [BACDE] , C -> [CBADF] , C-> [AECB] , C -> [BDA]
-//         //      O               O              O            X
-//     });
-// });
-// console.log(skill_trees);
